@@ -11,11 +11,11 @@ project:
   tiles: "1x1"
 
   # Your top module name must start with "tt_um_". Make it unique by including your github username:
-  top_module:  "tt_um_suhasm_full_adder"
+  top_module:  "tt_um_suhas1403_full_adder"
 
   # List your project's source files here.
   source_files:
-    - "tt_um_suhasm_full_adder.v"
+    - "project.v"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
