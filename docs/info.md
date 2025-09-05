@@ -1,20 +1,53 @@
-<!---
-
-This file is used to generate your project datasheet. Please fill in the information below and delete any unused
-sections.
-
-You can also include images in this folder and reference them in the markdown. Each image must be less than
-512 kb in size, and the combined size of all images must be less than 1 MB.
--->
-
 ## How it works
 
-Explain how your project works
+This project implements a **1-bit Full Adder** using digital logic gates.  
+It takes three inputs:
+- **A** (ui[0])  
+- **B** (ui[1])  
+- **Cin** (ui[2], carry-in)  
+
+and produces two outputs:
+- **Sum** (uo[0])  
+- **Cout** (uo[1], carry-out)  
+
+The logic equations are:  
+- **Sum = A ⊕ B ⊕ Cin**  
+- **Cout = (A & B) | (B & Cin) | (A & Cin)**  
+
+This is a fundamental building block for arithmetic circuits like adders, ALUs, and processors.
+
+---
 
 ## How to test
 
-Explain how to use your project
+1. Provide binary input values on `ui_in[2:0]`:
+   - `ui[0]` → A  
+   - `ui[1]` → B  
+   - `ui[2]` → Cin  
+
+2. Observe the outputs:
+   - `uo[0]` → Sum  
+   - `uo[1]` → Cout  
+
+3. Verify against the truth table:
+
+| A | B | Cin | Sum | Cout |
+|---|---|-----|-----|------|
+| 0 | 0 | 0   |  0  |  0   |
+| 0 | 0 | 1   |  1  |  0   |
+| 0 | 1 | 0   |  1  |  0   |
+| 0 | 1 | 1   |  0  |  1   |
+| 1 | 0 | 0   |  1  |  0   |
+| 1 | 0 | 1   |  0  |  1   |
+| 1 | 1 | 0   |  0  |  1   |
+| 1 | 1 | 1   |  1  |  1   |
+
+4. You can simulate this using Cocotb tests provided in the repository, or by running it directly in hardware once fabricated.
+
+---
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+No external hardware is required.  
+The project works entirely within the TinyTapeout environment.  
+Optionally, you can connect LEDs to `uo[0]` (Sum) and `uo[1]` (Cout) to visualize results during testing.
