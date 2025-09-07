@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Your Name
+ * Copyright (c) 2025 Suhas M
  * SPDX-License-Identifier: Apache-2.0
  */
 
@@ -21,10 +21,12 @@ module tt_um_suhas1403_full_adder (
     wire B    = ui_in[1];
     wire Cin  = ui_in[2];
 
-    // Outputs
+    // Full adder logic
     assign uo_out[0] = A ^ B ^ Cin;                 // Sum
     assign uo_out[1] = (A & B) | (B & Cin) | (A & Cin); // Carry
-    assign uo_out[7:2] = 6'b0; // unused outputs
+
+    // Unused outputs
+    assign uo_out[7:2] = 6'b0;
 
     // No bidirectional IOs used
     assign uio_out = 8'b0;
