@@ -14,7 +14,7 @@ module tb;
   reg        rst_n;   // active low reset
 
   // Instantiate the Full Adder design
-  tt_um_suhasm_full_adder dut (
+  tt_um_suhas1403_full_adder dut (
       .ui_in(ui_in),
       .uo_out(uo_out),
       .uio_in(uio_in),
