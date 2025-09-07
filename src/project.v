@@ -6,14 +6,21 @@
 `default_nettype none
 
 module tt_um_suhas1403_full_adder (
+    /* verilator lint_off UNUSEDSIGNAL */
     input  wire [7:0] ui_in,    // Dedicated inputs
+    /* verilator lint_on UNUSEDSIGNAL */
+
     output wire [7:0] uo_out,   // Dedicated outputs
+
+    /* verilator lint_off UNUSED */
     input  wire [7:0] uio_in,   // IOs: Input path
-    output wire [7:0] uio_out,  // IOs: Output path
-    output wire [7:0] uio_oe,   // IOs: Enable path (0=input, 1=output)
     input  wire       ena,      // goes high when the design is enabled
     input  wire       clk,      // clock
-    input  wire       rst_n     // reset_n (active low)
+    input  wire       rst_n,    // reset_n (active low)
+    /* verilator lint_on UNUSED */
+
+    output wire [7:0] uio_out,  // IOs: Output path
+    output wire [7:0] uio_oe    // IOs: Enable path (0=input, 1=output)
 );
 
     // Input mapping
@@ -22,7 +29,7 @@ module tt_um_suhas1403_full_adder (
     wire Cin  = ui_in[2];
 
     // Full adder logic
-    assign uo_out[0] = A ^ B ^ Cin;                 // Sum
+    assign uo_out[0] = A ^ B ^ Cin;                     // Sum
     assign uo_out[1] = (A & B) | (B & Cin) | (A & Cin); // Carry
 
     // Unused outputs
