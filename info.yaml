@@ -3,7 +3,7 @@ project:
   title:        "1-bit Full Adder"
   author:       "Suhas M"
   discord:      ""                 # optional
-  description:  "Implements a 1-bit full adder with Sum and Carry outputs"
+  description:  "Simple Full Adder Using Verilog"
   language:     "Verilog"
   clock_hz:     0                  # no clock needed for combinational logic
 
