@@ -1,53 +1,31 @@
+# 1-bit Full Adder
+
 ## How it works
+A **full adder** is a combinational circuit that adds three single-bit binary inputs: **A**, **B**, and **Cin** (carry-in), and produces two outputs: the **Sum** and the **Cout** (carry-out).  
+- **Sum** = A ⊕ B ⊕ Cin (1 if an odd number of inputs are 1)  
+- **Cout** = (A & B) | (B & Cin) | (A & Cin) (1 if at least two inputs are 1)  
 
-This project implements a **1-bit Full Adder** using digital logic gates.  
-It takes three inputs:
-- **A** (ui[0])  
-- **B** (ui[1])  
-- **Cin** (ui[2], carry-in)  
-
-and produces two outputs:
-- **Sum** (uo[0])  
-- **Cout** (uo[1], carry-out)  
-
-The logic equations are:  
-- **Sum = A ⊕ B ⊕ Cin**  
-- **Cout = (A & B) | (B & Cin) | (A & Cin)**  
-
-This is a fundamental building block for arithmetic circuits like adders, ALUs, and processors.
+This allows the full adder to account for carry-in from a previous stage, making it suitable for multi-bit addition.
 
 ---
 
 ## How to test
 
-1. Provide binary input values on `ui_in[2:0]`:
-   - `ui[0]` → A  
-   - `ui[1]` → B  
-   - `ui[2]` → Cin  
-
-2. Observe the outputs:
-   - `uo[0]` → Sum  
-   - `uo[1]` → Cout  
-
-3. Verify against the truth table:
-
 | A | B | Cin | Sum | Cout |
 |---|---|-----|-----|------|
-| 0 | 0 | 0   |  0  |  0   |
-| 0 | 0 | 1   |  1  |  0   |
-| 0 | 1 | 0   |  1  |  0   |
-| 0 | 1 | 1   |  0  |  1   |
-| 1 | 0 | 0   |  1  |  0   |
-| 1 | 0 | 1   |  0  |  1   |
-| 1 | 1 | 0   |  0  |  1   |
-| 1 | 1 | 1   |  1  |  1   |
+| 0 | 0 | 0   | 0   | 0    |
+| 0 | 0 | 1   | 1   | 0    |
+| 0 | 1 | 0   | 1   | 0    |
+| 0 | 1 | 1   | 0   | 1    |
+| 1 | 0 | 0   | 1   | 0    |
+| 1 | 0 | 1   | 0   | 1    |
+| 1 | 1 | 0   | 0   | 1    |
+| 1 | 1 | 1   | 1   | 1    |
 
-4. You can simulate this using Cocotb tests provided in the repository, or by running it directly in hardware once fabricated.
+Provide binary inputs on `ui[0..2]` (A, B, Cin) and observe the outputs on `uo[0..1]` (Sum, Cout).
 
 ---
 
 ## External hardware
-
 No external hardware is required.  
-The project works entirely within the TinyTapeout environment.  
-Optionally, you can connect LEDs to `uo[0]` (Sum) and `uo[1]` (Cout) to visualize results during testing.
+The project works entirely within the TinyTapeout environment.
